@@ -1,0 +1,126 @@
+﻿using System;
+using System.Globalization;
+using System.Windows.Forms;
+
+namespace Review_Q2
+{
+    public partial class Form1 : Form
+    {
+        // Service prices (NT$)
+        private const decimal PriceChangeOil = 780m;
+        private const decimal PriceLube = 540m;
+        private const decimal PriceRadiatorWash = 900m;
+        private const decimal PriceTransmissionWash = 2400m;
+        private const decimal PriceInspection = 450m;
+        private const decimal PriceReplaceMuffler = 3000m;
+        private const decimal PriceTireChange = 600m;
+
+        // Labor rate per hour (NT$)
+        private const decimal LaborRatePerHour = 600m;
+
+        // Tax rate (6%)
+        private const decimal TaxRate = 0.06m;
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void btnCalculate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Calculate service charges
+                decimal serviceCharges = 0m;
+                if (chkChangeOil.Checked) serviceCharges += PriceChangeOil;
+                if (chkLube.Checked) serviceCharges += PriceLube;
+                if (chkRadiatorWash.Checked) serviceCharges += PriceRadiatorWash;
+                if (chkTransmissionWash.Checked) serviceCharges += PriceTransmissionWash;
+                if (chkInspection.Checked) serviceCharges += PriceInspection;
+                if (chkReplaceMuffler.Checked) serviceCharges += PriceReplaceMuffler;
+                if (chkTireChange.Checked) serviceCharges += PriceTireChange;
+
+                // Get parts amount
+                if (!decimal.TryParse(txtParts.Text, NumberStyles.Number, CultureInfo.InvariantCulture, out var partsAmount))
+                {
+                    MessageBox.Show("請輸入有效的零件金額。", "輸入錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtParts.Focus();
+                    return;
+                }
+
+                // Get labor hours
+                if (!decimal.TryParse(txtHours.Text, NumberStyles.Number, CultureInfo.InvariantCulture, out var hours))
+                {
+                    MessageBox.Show("請輸入有效的工時數（小時）。", "輸入錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtHours.Focus();
+                    return;
+                }
+
+                // Calculate labor charges
+                var laborCharges = hours * LaborRatePerHour;
+
+                // Calculate service and labor total
+                var serviceAndLaborTotal = serviceCharges + laborCharges;
+
+                // Calculate parts tax
+                var partsTax = Math.Round(partsAmount * TaxRate, 2);
+
+                // Calculate total
+                var total = serviceAndLaborTotal + partsAmount + partsTax;
+
+                // Display results
+                txtServiceAndLabor.Text = serviceAndLaborTotal.ToString("C0", CultureInfo.CreateSpecificCulture("zh-TW"));
+                txtPartsOut.Text = partsAmount.ToString("C0", CultureInfo.CreateSpecificCulture("zh-TW"));
+                txtPartsTax.Text = partsTax.ToString("C0", CultureInfo.CreateSpecificCulture("zh-TW"));
+                txtTotal.Text = total.ToString("C0", CultureInfo.CreateSpecificCulture("zh-TW"));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"計算錯誤: {ex.Message}", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            // Reset all checkboxes
+            chkChangeOil.Checked = false;
+            chkLube.Checked = false;
+            chkRadiatorWash.Checked = false;
+            chkTransmissionWash.Checked = false;
+            chkInspection.Checked = false;
+            chkReplaceMuffler.Checked = false;
+            chkTireChange.Checked = false;
+
+            // Clear all input and output fields
+            txtParts.Clear();
+            txtHours.Clear();
+            txtServiceAndLabor.Clear();
+            txtPartsOut.Clear();
+            txtPartsTax.Clear();
+            txtTotal.Clear();
+
+            txtParts.Focus();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        // Restrict numeric input for TextBox
+        private void NumericTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // Allow only one decimal point
+            var textBox = sender as TextBox;
+            if (e.KeyChar == '.' && textBox != null && textBox.Text.Contains("."))
+            {
+                e.Handled = true;
+            }
+        }
+    }
+}
