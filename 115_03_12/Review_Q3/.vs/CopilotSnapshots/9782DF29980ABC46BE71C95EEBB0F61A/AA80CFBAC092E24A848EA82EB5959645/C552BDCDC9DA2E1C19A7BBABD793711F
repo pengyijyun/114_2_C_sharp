@@ -1,0 +1,178 @@
+﻿namespace Review_Q3
+{
+    partial class Form1
+    {
+        /// <summary>
+        ///  Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        // UI Components
+        private System.Windows.Forms.Label titleLabel;
+        private System.Windows.Forms.Panel numberDisplayPanel;
+        private System.Windows.Forms.Label[] numberLabels;
+        private System.Windows.Forms.Button generateButton;
+        private System.Windows.Forms.Button drawButton;
+        private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.TextBox generatedNumbersTextBox;
+        private System.Windows.Forms.TextBox matchingResultsTextBox;
+        private System.Windows.Forms.Label generatedNumbersLabel;
+        private System.Windows.Forms.Label matchingResultsLabel;
+
+        /// <summary>
+        ///  Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            titleLabel = new Label();
+            numberDisplayPanel = new Panel();
+            generateButton = new Button();
+            drawButton = new Button();
+            exitButton = new Button();
+            generatedNumbersLabel = new Label();
+            generatedNumbersTextBox = new TextBox();
+            matchingResultsLabel = new Label();
+            matchingResultsTextBox = new TextBox();
+            SuspendLayout();
+            // 
+            // titleLabel
+            // 
+            titleLabel.Font = new Font("微软雅黑", 18F, FontStyle.Bold);
+            titleLabel.Location = new Point(50, 20);
+            titleLabel.Name = "titleLabel";
+            titleLabel.Size = new Size(400, 40);
+            titleLabel.TabIndex = 0;
+            titleLabel.Text = "樂選號碼產生器";
+            // 
+            // numberDisplayPanel
+            // 
+            numberDisplayPanel.BackColor = Color.White;
+            numberDisplayPanel.Location = new Point(50, 80);
+            numberDisplayPanel.Name = "numberDisplayPanel";
+            numberDisplayPanel.Size = new Size(800, 120);
+            numberDisplayPanel.TabIndex = 1;
+            numberDisplayPanel.Paint += NumberDisplayPanel_Paint;
+            // 
+            // generateButton
+            // 
+            generateButton.FlatAppearance.BorderSize = 2;
+            generateButton.FlatStyle = FlatStyle.Flat;
+            generateButton.Font = new Font("微软雅黑", 16F);
+            generateButton.Location = new Point(80, 220);
+            generateButton.Name = "generateButton";
+            generateButton.Size = new Size(150, 60);
+            generateButton.TabIndex = 2;
+            generateButton.Text = "產生號碼";
+            // 
+            // drawButton
+            // 
+            drawButton.FlatAppearance.BorderSize = 2;
+            drawButton.FlatStyle = FlatStyle.Flat;
+            drawButton.Font = new Font("微软雅黑", 16F);
+            drawButton.Location = new Point(375, 220);
+            drawButton.Name = "drawButton";
+            drawButton.Size = new Size(150, 60);
+            drawButton.TabIndex = 3;
+            drawButton.Text = "開獎號碼";
+            drawButton.Click += drawButton_Click_1;
+            // 
+            // exitButton
+            // 
+            exitButton.FlatAppearance.BorderSize = 2;
+            exitButton.FlatStyle = FlatStyle.Flat;
+            exitButton.Font = new Font("微软雅黑", 16F);
+            exitButton.Location = new Point(670, 220);
+            exitButton.Name = "exitButton";
+            exitButton.Size = new Size(150, 60);
+            exitButton.TabIndex = 4;
+            exitButton.Text = "離開";
+            // 
+            // generatedNumbersLabel
+            // 
+            generatedNumbersLabel.Font = new Font("微软雅黑", 14F);
+            generatedNumbersLabel.Location = new Point(50, 310);
+            generatedNumbersLabel.Name = "generatedNumbersLabel";
+            generatedNumbersLabel.Size = new Size(350, 30);
+            generatedNumbersLabel.TabIndex = 5;
+            generatedNumbersLabel.Text = "顯示自動產生的開獎號碼";
+            // 
+            // generatedNumbersTextBox
+            // 
+            generatedNumbersTextBox.Font = new Font("微软雅黑", 14F);
+            generatedNumbersTextBox.Location = new Point(50, 345);
+            generatedNumbersTextBox.Multiline = true;
+            generatedNumbersTextBox.Name = "generatedNumbersTextBox";
+            generatedNumbersTextBox.ReadOnly = true;
+            generatedNumbersTextBox.ScrollBars = ScrollBars.Vertical;
+            generatedNumbersTextBox.Size = new Size(400, 300);
+            generatedNumbersTextBox.TabIndex = 6;
+            // 
+            // matchingResultsLabel
+            // 
+            matchingResultsLabel.Font = new Font("微软雅黑", 14F);
+            matchingResultsLabel.Location = new Point(500, 310);
+            matchingResultsLabel.Name = "matchingResultsLabel";
+            matchingResultsLabel.Size = new Size(350, 30);
+            matchingResultsLabel.TabIndex = 7;
+            matchingResultsLabel.Text = "中獎比對結果";
+            // 
+            // matchingResultsTextBox
+            // 
+            matchingResultsTextBox.Font = new Font("微软雅黑", 14F);
+            matchingResultsTextBox.Location = new Point(500, 345);
+            matchingResultsTextBox.Multiline = true;
+            matchingResultsTextBox.Name = "matchingResultsTextBox";
+            matchingResultsTextBox.ReadOnly = true;
+            matchingResultsTextBox.ScrollBars = ScrollBars.Vertical;
+            matchingResultsTextBox.Size = new Size(350, 300);
+            matchingResultsTextBox.TabIndex = 8;
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(22F, 46F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(900, 700);
+            Controls.Add(titleLabel);
+            Controls.Add(numberDisplayPanel);
+            Controls.Add(generateButton);
+            Controls.Add(drawButton);
+            Controls.Add(exitButton);
+            Controls.Add(generatedNumbersLabel);
+            Controls.Add(generatedNumbersTextBox);
+            Controls.Add(matchingResultsLabel);
+            Controls.Add(matchingResultsTextBox);
+            Font = new Font("微软雅黑", 18F);
+            Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "樂選號碼產生器";
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        private void NumberDisplayPanel_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
+        {
+            using (System.Drawing.Pen redPen = new System.Drawing.Pen(System.Drawing.Color.Red, 3))
+            {
+                e.Graphics.DrawRectangle(redPen, 2, 2, this.numberDisplayPanel.Width - 5, this.numberDisplayPanel.Height - 5);
+            }
+        }
+
+        #endregion
+    }
+}

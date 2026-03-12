@@ -1,0 +1,11 @@
+﻿namespace Review_Q3
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            // 假設 redBorderPanel 是 Form1 的成員或已宣告的 Panel
+            InitializeComponent(redBorderPanel);
+        }
+    }
+}

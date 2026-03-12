@@ -1,0 +1,223 @@
+﻿namespace Review_Q3
+{
+    partial class Form1
+    {
+        /// <summary>
+        ///  Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        // UI Components
+        private System.Windows.Forms.Label titleLabel;
+        private System.Windows.Forms.Panel numberDisplayPanel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label[] numberLabels;
+        private System.Windows.Forms.Button generateButton;
+        private System.Windows.Forms.Button drawButton;
+        private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.TextBox generatedNumbersTextBox;
+        private System.Windows.Forms.TextBox matchingResultsTextBox;
+        private System.Windows.Forms.Label generatedNumbersLabel;
+        private System.Windows.Forms.Label matchingResultsLabel;
+
+        /// <summary>
+        ///  Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(900, 700);
+            this.Text = "樂選號碼產生器";
+            this.Font = new System.Drawing.Font("Microsoft YaHei", 18F);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+
+            // Title Label
+            this.titleLabel = new System.Windows.Forms.Label();
+            this.titleLabel.Text = "樂選號碼產生器";
+            this.titleLabel.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Bold);
+            this.titleLabel.Location = new System.Drawing.Point(50, 20);
+            this.titleLabel.Size = new System.Drawing.Size(400, 40);
+            this.titleLabel.AutoSize = false;
+            this.Controls.Add(this.titleLabel);
+
+            // Number Display Panel with Red Border
+            this.numberDisplayPanel = new System.Windows.Forms.Panel();
+            this.numberDisplayPanel.BackColor = System.Drawing.Color.White;
+            this.numberDisplayPanel.Location = new System.Drawing.Point(50, 80);
+            this.numberDisplayPanel.Size = new System.Drawing.Size(800, 120);
+            this.numberDisplayPanel.Paint += NumberDisplayPanel_Paint;
+            this.Controls.Add(this.numberDisplayPanel);
+
+            // Create 5 number display labels (label1 - label5)
+            this.label1 = new System.Windows.Forms.Label();
+            this.label1.Name = "label1";
+            this.label1.Text = "";
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(80, 25);
+            this.label1.Size = new System.Drawing.Size(70, 70);
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.numberDisplayPanel.Controls.Add(this.label1);
+
+            this.label2 = new System.Windows.Forms.Label();
+            this.label2.Name = "label2";
+            this.label2.Text = "";
+            this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(190, 25);
+            this.label2.Size = new System.Drawing.Size(70, 70);
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.numberDisplayPanel.Controls.Add(this.label2);
+
+            this.label3 = new System.Windows.Forms.Label();
+            this.label3.Name = "label3";
+            this.label3.Text = "";
+            this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(300, 25);
+            this.label3.Size = new System.Drawing.Size(70, 70);
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.numberDisplayPanel.Controls.Add(this.label3);
+
+            this.label4 = new System.Windows.Forms.Label();
+            this.label4.Name = "label4";
+            this.label4.Text = "";
+            this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(410, 25);
+            this.label4.Size = new System.Drawing.Size(70, 70);
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.numberDisplayPanel.Controls.Add(this.label4);
+
+            this.label5 = new System.Windows.Forms.Label();
+            this.label5.Name = "label5";
+            this.label5.Text = "";
+            this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(520, 25);
+            this.label5.Size = new System.Drawing.Size(70, 70);
+            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label5.BackColor = System.Drawing.Color.White;
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.numberDisplayPanel.Controls.Add(this.label5);
+
+            // 將 5 個 label 加入 numberLabels 陣列供程式碼使用
+            this.numberLabels = new System.Windows.Forms.Label[5];
+            this.numberLabels[0] = this.label1;
+            this.numberLabels[1] = this.label2;
+            this.numberLabels[2] = this.label3;
+            this.numberLabels[3] = this.label4;
+            this.numberLabels[4] = this.label5;
+
+            // Button Panel
+            int buttonY = 220;
+            int buttonWidth = 150;
+            int buttonHeight = 60;
+
+            // Generate Number Button
+            this.generateButton = new System.Windows.Forms.Button();
+            this.generateButton.Text = "產生號碼";
+            this.generateButton.Font = new System.Drawing.Font("Microsoft YaHei", 16F);
+            this.generateButton.Location = new System.Drawing.Point(80, buttonY);
+            this.generateButton.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
+            this.generateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.generateButton.FlatAppearance.BorderSize = 2;
+            this.Controls.Add(this.generateButton);
+
+            // Draw Numbers Button
+            this.drawButton = new System.Windows.Forms.Button();
+            this.drawButton.Text = "開獎號碼";
+            this.drawButton.Font = new System.Drawing.Font("Microsoft YaHei", 16F);
+            this.drawButton.Location = new System.Drawing.Point(375, buttonY);
+            this.drawButton.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
+            this.drawButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.drawButton.FlatAppearance.BorderSize = 2;
+            this.Controls.Add(this.drawButton);
+
+            // Exit Button
+            this.exitButton = new System.Windows.Forms.Button();
+            this.exitButton.Text = "離開";
+            this.exitButton.Font = new System.Drawing.Font("Microsoft YaHei", 16F);
+            this.exitButton.Location = new System.Drawing.Point(670, buttonY);
+            this.exitButton.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
+            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exitButton.FlatAppearance.BorderSize = 2;
+            this.Controls.Add(this.exitButton);
+
+            // Generated Numbers Label
+            this.generatedNumbersLabel = new System.Windows.Forms.Label();
+            this.generatedNumbersLabel.Text = "顯示自動產生的開獎號碼";
+            this.generatedNumbersLabel.Font = new System.Drawing.Font("Microsoft YaHei", 14F);
+            this.generatedNumbersLabel.Location = new System.Drawing.Point(50, 310);
+            this.generatedNumbersLabel.Size = new System.Drawing.Size(350, 30);
+            this.Controls.Add(this.generatedNumbersLabel);
+
+            // Generated Numbers TextBox
+            this.generatedNumbersTextBox = new System.Windows.Forms.TextBox();
+            this.generatedNumbersTextBox.Font = new System.Drawing.Font("Microsoft YaHei", 14F);
+            this.generatedNumbersTextBox.Location = new System.Drawing.Point(50, 345);
+            this.generatedNumbersTextBox.Size = new System.Drawing.Size(400, 300);
+            this.generatedNumbersTextBox.Multiline = true;
+            this.generatedNumbersTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.generatedNumbersTextBox.ReadOnly = true;
+            this.Controls.Add(this.generatedNumbersTextBox);
+
+            // Matching Results Label
+            this.matchingResultsLabel = new System.Windows.Forms.Label();
+            this.matchingResultsLabel.Text = "中獎比對結果";
+            this.matchingResultsLabel.Font = new System.Drawing.Font("Microsoft YaHei", 14F);
+            this.matchingResultsLabel.Location = new System.Drawing.Point(500, 310);
+            this.matchingResultsLabel.Size = new System.Drawing.Size(350, 30);
+            this.Controls.Add(this.matchingResultsLabel);
+
+            // Matching Results TextBox
+            this.matchingResultsTextBox = new System.Windows.Forms.TextBox();
+            this.matchingResultsTextBox.Font = new System.Drawing.Font("Microsoft YaHei", 14F);
+            this.matchingResultsTextBox.Location = new System.Drawing.Point(500, 345);
+            this.matchingResultsTextBox.Size = new System.Drawing.Size(350, 300);
+            this.matchingResultsTextBox.Multiline = true;
+            this.matchingResultsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.matchingResultsTextBox.ReadOnly = true;
+            this.Controls.Add(this.matchingResultsTextBox);
+        }
+
+        private void NumberDisplayPanel_Paint(object? sender, System.Windows.Forms.PaintEventArgs e)
+        {
+            using (System.Drawing.Pen redPen = new System.Drawing.Pen(System.Drawing.Color.Red, 3))
+            {
+                e.Graphics.DrawRectangle(redPen, 2, 2, this.numberDisplayPanel.Width - 5, this.numberDisplayPanel.Height - 5);
+            }
+        }
+
+        #endregion
+    }
+}

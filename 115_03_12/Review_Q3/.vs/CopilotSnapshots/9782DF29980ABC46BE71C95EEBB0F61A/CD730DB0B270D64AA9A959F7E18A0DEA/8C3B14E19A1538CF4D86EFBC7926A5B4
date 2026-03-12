@@ -1,0 +1,316 @@
+﻿using System;
+using System.IO;
+using System.Windows.Forms;
+
+namespace Review_Q3
+{
+    public partial class Form1 : Form
+    {
+        // 儲存開獎號碼的陣列
+        private int[]? lotteryNumbers = null;
+        // 儲存產生的隨機號碼的陣列
+        private int[]? generatedNumbers = null;
+
+        public Form1()
+        {
+            InitializeComponent();
+
+            // 初始化按鈕事件
+            this.drawButton.Click += DrawButton_Click;
+            this.generateButton.Click += GenerateButton_Click;
+            this.exitButton.Click += ExitButton_Click;
+
+            // 產生號碼按鈕初始為 disable
+            this.generateButton.Enabled = false;
+        }
+
+        /// <summary>
+        /// Step1: 開獎號碼按鈕事件 - 處理檔案選擇與讀取開獎號碼的流程
+        /// </summary>
+        private void DrawButton_Click(object? sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "文字檔 (*.txt)|*.txt|所有檔案 (*.*)|*.*";
+            openFileDialog.Title = "選擇開獎號碼檔案";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    string filePath = openFileDialog.FileName;
+                    lotteryNumbers = ReadLotteryNumbersFromFile(filePath);
+
+                    if (lotteryNumbers != null && lotteryNumbers.Length > 0)
+                    {
+                        // 顯示開獎號碼至 generatedNumbersTextBox
+                        this.generatedNumbersTextBox.Clear();
+                        this.generatedNumbersTextBox.AppendText("開獎號碼：\r\n");
+                        for (int i = 0; i < lotteryNumbers.Length; i++)
+                        {
+                            this.generatedNumbersTextBox.AppendText(lotteryNumbers[i].ToString() + "\r\n");
+                        }
+
+                        // 啟用產生號碼按鈕
+                        this.generateButton.Enabled = true;
+                        MessageBox.Show("開獎號碼讀取成功！", "成功");
+                    }
+                    else
+                    {
+                        MessageBox.Show("檔案中沒有有效的號碼！", "錯誤");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("讀取檔案時發生錯誤：" + ex.Message, "錯誤");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Step2: 產生號碼按鈕事件 - 負責產生隨機號碼並顯示在介面上
+        /// </summary>
+        private void GenerateButton_Click(object? sender, EventArgs e)
+        {
+            if (lotteryNumbers == null || lotteryNumbers.Length == 0)
+            {
+                MessageBox.Show("請先讀取開獎號碼！", "提示");
+                return;
+            }
+
+            // 產生隨機號碼（假設範圍是 1-49，共 5 個不重複的數字）
+            this.generatedNumbers = GenerateRandomNumbers(5, 1, 49);
+
+            // 顯示產生的號碼在 numberLabels
+            for (int i = 0; i < this.generatedNumbers.Length; i++)
+            {
+                this.numberLabels[i].Text = this.generatedNumbers[i].ToString();
+            }
+
+            // 進行號碼比對
+            MatchNumbers();
+        }
+
+        /// <summary>
+        /// Step3: 離開按鈕事件 - 提供程式結束的功能
+        /// </summary>
+        private void ExitButton_Click(object? sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("確定要離開程式嗎？", "確認", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
+
+        /// <summary>
+        /// 檔案讀取邏輯：使用 File.OpenText 進行檔案操作
+        /// </summary>
+        private int[]? ReadLotteryNumbersFromFile(string filePath)
+        {
+            try
+            {
+                // 使用 File.OpenText 開啟檔案進行讀取
+                using (StreamReader reader = File.OpenText(filePath))
+                {
+                    string content = reader.ReadToEnd();  // 讀取全部內容
+                    if (string.IsNullOrWhiteSpace(content))
+                        return null;
+
+                    // 分割號碼（支援逗號、空格、換行、制表符等分隔符）
+                    string[] numberStrings = content.Split(new char[] { ',', ' ', '\n', '\r', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+                    int[] numbers = new int[numberStrings.Length];
+                    int count = 0;
+
+                    for (int i = 0; i < numberStrings.Length; i++)
+                    {
+                        if (int.TryParse(numberStrings[i].Trim(), out int num))
+                        {
+                            numbers[count] = num;
+                            count++;
+                        }
+                    }
+
+                    // 調整陣列大小以符合實際讀取的數量
+                    int[] result = new int[count];
+                    for (int i = 0; i < count; i++)
+                    {
+                        result[i] = numbers[i];
+                    }
+
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("檔案讀取錯誤：" + ex.Message, "錯誤");
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 檔案寫入邏輯：使用 File.CreateText 或 File.AppendText 進行檔案操作
+        /// </summary>
+        private void WriteLotteryNumbersToFile(string filePath, int[] numbers)
+        {
+            try
+            {
+                // 使用 File.CreateText 建立新檔案（如果存在會覆蓋）
+                using (StreamWriter writer = File.CreateText(filePath))
+                {
+                    for (int i = 0; i < numbers.Length; i++)
+                    {
+                        if (i < numbers.Length - 1)
+                        {
+                            writer.Write(numbers[i] + ", ");
+                        }
+                        else
+                        {
+                            writer.Write(numbers[i]);
+                        }
+                    }
+                }
+                MessageBox.Show("檔案寫入成功！", "成功");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("檔案寫入錯誤：" + ex.Message, "錯誤");
+            }
+        }
+
+        /// <summary>
+        /// 檔案追加寫入邏輯：使用 File.AppendText 進行檔案操作
+        /// </summary>
+        private void AppendLotteryNumbersToFile(string filePath, int[] numbers)
+        {
+            try
+            {
+                // 使用 File.AppendText 在檔案末尾追加內容
+                using (StreamWriter writer = File.AppendText(filePath))
+                {
+                    writer.WriteLine();  // 新增一行
+                    for (int i = 0; i < numbers.Length; i++)
+                    {
+                        if (i < numbers.Length - 1)
+                        {
+                            writer.Write(numbers[i] + ", ");
+                        }
+                        else
+                        {
+                            writer.Write(numbers[i]);
+                        }
+                    }
+                }
+                MessageBox.Show("檔案追加成功！", "成功");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("檔案追加錯誤：" + ex.Message, "錯誤");
+            }
+        }
+
+        /// <summary>
+        /// 不重複亂數產生：使用基本迴圈和條件判斷實現不重複數字的產生
+        /// </summary>
+        private int[] GenerateRandomNumbers(int count, int minValue, int maxValue)
+        {
+            int[] randomNumbers = new int[count];
+            Random random = new Random();
+            int generated = 0;
+
+            while (generated < count)
+            {
+                int randomNum = random.Next(minValue, maxValue + 1);
+                bool isDuplicate = false;
+
+                // 檢查是否重複
+                for (int i = 0; i < generated; i++)
+                {
+                    if (randomNumbers[i] == randomNum)
+                    {
+                        isDuplicate = true;
+                        break;
+                    }
+                }
+
+                // 如果不重複，則加入陣列
+                if (!isDuplicate)
+                {
+                    randomNumbers[generated] = randomNum;
+                    generated++;
+                }
+            }
+
+            return randomNumbers;
+        }
+
+        /// <summary>
+        /// 號碼比對方法：實作使用者號碼與開獎號碼的比對邏輯，計算中獎數量並判定獎項等級
+        /// </summary>
+        private void MatchNumbers()
+        {
+            if (lotteryNumbers == null || generatedNumbers == null)
+                return;
+
+            int matchCount = 0;
+            int[] matchedNumbers = new int[generatedNumbers.Length];
+            int matchedIndex = 0;
+
+            // 比對號碼並記錄中獎的號碼
+            for (int i = 0; i < generatedNumbers.Length; i++)
+            {
+                for (int j = 0; j < lotteryNumbers.Length; j++)
+                {
+                    if (generatedNumbers[i] == lotteryNumbers[j])
+                    {
+                        matchCount++;
+                        matchedNumbers[matchedIndex] = generatedNumbers[i];
+                        matchedIndex++;
+                        break;
+                    }
+                }
+            }
+
+            // 判定獎項等級並顯示結果
+            string result = GetPrizeLevel(matchCount);
+            this.matchingResultsTextBox.Clear();
+            this.matchingResultsTextBox.AppendText("中獎號碼數：" + matchCount + "\r\n");
+            this.matchingResultsTextBox.AppendText("獎項等級：" + result + "\r\n");
+            
+            // 顯示所有中獎的號碼
+            if (matchCount > 0)
+            {
+                this.matchingResultsTextBox.AppendText("\r\n中獎的號碼：\r\n");
+                for (int i = 0; i < matchCount; i++)
+                {
+                    this.matchingResultsTextBox.AppendText(matchedNumbers[i].ToString() + "\r\n");
+                }
+            }
+            else
+            {
+                this.matchingResultsTextBox.AppendText("\r\n未中獎");
+            }
+        }
+
+        /// <summary>
+        /// 根據中獎數量判定獎項等級
+        /// </summary>
+        private string GetPrizeLevel(int matchCount)
+        {
+            switch (matchCount)
+            {
+                case 5:
+                    return "特別獎";
+                case 4:
+                    return "一等獎";
+                case 3:
+                    return "二等獎";
+                case 2:
+                    return "三等獎";
+                case 1:
+                    return "四等獎";
+                default:
+                    return "未中獎";
+            }
+        }
+    }
+}

@@ -14,3 +14,4 @@ C:\Users\m303\Desktop\114_2_C_sharp\115_03_05\Review_Q2\Review_Q2\obj\Debug\net8
 C:\Users\m303\Desktop\114_2_C_sharp\115_03_05\Review_Q2\Review_Q2\obj\Debug\net8.0-windows\Review_Q2.pdb
 C:\Users\m303\Desktop\114_2_C_sharp\115_03_05\Review_Q2\Review_Q2\obj\Debug\net8.0-windows\Review_Q2.genruntimeconfig.cache
 C:\Users\m303\Desktop\114_2_C_sharp\115_03_05\Review_Q2\Review_Q2\obj\Debug\net8.0-windows\ref\Review_Q2.dll
+C:\Users\m303\Desktop\114_2_C_sharp\115_03_05\Review_Q2\Review_Q2\obj\Debug\net8.0-windows\Review_Q2.sourcelink.json
