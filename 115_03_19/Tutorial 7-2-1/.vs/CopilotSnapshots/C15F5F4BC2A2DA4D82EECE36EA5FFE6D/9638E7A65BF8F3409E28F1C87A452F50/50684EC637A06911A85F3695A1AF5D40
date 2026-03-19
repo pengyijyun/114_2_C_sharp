@@ -1,0 +1,104 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.IO;
+
+namespace Test_Average
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        // The Average method accepts an int array argument
+        // and returns the Average of the values in the array.
+        private double Average(int[] scores)
+        {
+            int sum = 0;
+            for (int i = 0; i < scores.Length; i++)
+            {
+                sum += scores[i];
+            }
+            return (double)sum / scores.Length;
+        }
+
+        // The Highest method accepts an int array argument
+        // and returns the highest value in that array.
+        private int Highest(int[] scores)
+        {
+            int max = scores[0];
+            for (int i = 1; i < scores.Length; i++)
+            {
+                if (scores[i] > max)
+                {
+                    max = scores[i];
+                }
+            }
+            return max;
+        }
+
+        // The Lowest method accepts an int array argument
+        // and returns the lowest value in that array.
+        private int Lowest(int[] scores)
+        {
+            int min = scores[0];
+            for (int i = 1; i < scores.Length; i++)
+            {
+                if (scores[i] < min)
+                {
+                    min = scores[i];
+                }
+            }
+            return min;
+        }
+
+        private void getScoresButton_Click(object sender, EventArgs e)
+        {
+            const int SIZE = 5;
+            int[] scores = new int[SIZE];
+            StreamReader inputFile;
+            int index = 0;
+
+            try
+            {
+                inputFile = File.OpenText("TestScores.txt");
+
+                while (!inputFile.EndOfStream && index < scores.Length)
+                {
+                    scores[index] = int.Parse(inputFile.ReadLine());
+                    index++;
+                }
+                inputFile.Close();
+
+                foreach (int val in scores)
+                {
+                    testScoresListBox.Items.Add(val);
+                }
+
+                // 計算並顯示最高分、最低分、平均分
+                highScoreLabel.Text = Highest(scores).ToString();
+                lowScoreLabel.Text = Lowest(scores).ToString();
+                averageScoreLabel.Text = Average(scores).ToString("F2");
+            }
+            catch (Exception ex)
+            {
+                // Display an error message.
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            // Close the form.
+            this.Close();
+        }
+    }
+}
