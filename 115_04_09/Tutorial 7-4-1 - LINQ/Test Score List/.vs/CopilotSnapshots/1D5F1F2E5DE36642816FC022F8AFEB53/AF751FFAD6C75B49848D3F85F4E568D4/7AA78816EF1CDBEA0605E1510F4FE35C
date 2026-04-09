@@ -1,0 +1,172 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.IO;
+
+namespace Test_Score_List
+{
+    public partial class Form1 : Form
+    {
+        // 成績列表，作為類別變數以便在多個方法間使用
+        private List<int> scoresList = new List<int>();
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        // 從檔案讀取成績並添加至 List
+        private void ReadScores(List<int> scoresList)
+        {
+            string filePath = "TestScores.txt";
+            try
+            {
+                using (StreamReader reader = File.OpenText(filePath))
+                {
+                    string line;
+                    while (!reader.EndOfStream)
+                    {
+                        line = reader.ReadLine();
+                        if (!string.IsNullOrEmpty(line))
+                        {
+                            scoresList.Add(int.Parse(line));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("讀取成績時發生錯誤：" + ex.Message);
+            }
+        }
+
+        // 在列表方塊中顯示所有成績
+        private void DisplayScores(List<int> scoresList)
+        {
+            testScoresListBox.Items.Clear();
+            int index = 1;
+            foreach (int score in scoresList)
+            {
+                testScoresListBox.Items.Add((index++) + ": " + score);
+            }
+        }
+
+        // 計算平均分數
+        private double Average(List<int> scoresList)
+        {
+            if (scoresList.Count == 0)
+                return 0;
+            
+            int total = 0;
+            foreach (int score in scoresList)
+            {
+                total += score;
+            }
+            return (double)total / scoresList.Count;
+        }
+
+        // 計算高於平均分數的數量
+        private int AboveAverage(List<int> scoresList, double averageScore)
+        {
+            int count = 0;
+            foreach (int score in scoresList)
+            {
+                if (score > averageScore)
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        // 計算低於平均分數的數量
+        private int BelowAverage(List<int> scoresList)
+        {
+            double averageScore = Average(scoresList);
+            int count = 0;
+            foreach (int score in scoresList)
+            {
+                if (score < averageScore)
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        private void getScoresButton_Click(object sender, EventArgs e)
+        {
+            double averageScore;    // 用來保存平均分數
+            int numAboveAverage;    // 高於平均分數的數量
+            int numBelowAverage;    // 低於平均分數的數量
+
+            // 清空舊的成績列表
+            scoresList.Clear();
+
+            // 從檔案讀取成績到 List 中
+            ReadScores(scoresList);
+
+            // 顯示成績
+            DisplayScores(scoresList);
+
+            // 顯示平均分數
+            averageScore = Average(scoresList);
+            averageLabel.Text = averageScore.ToString("n1");
+
+            // 顯示高於平均分數的數量
+            numAboveAverage = AboveAverage(scoresList, averageScore);
+            aboveAverageLabel.Text = numAboveAverage.ToString();
+
+            // 顯示低於平均分數的數量
+            numBelowAverage = BelowAverage(scoresList);
+            belowAverageLabel.Text = numBelowAverage.ToString();
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            // 關閉表單
+            this.Close();
+        }
+
+        // 搜尋成績按鈕點擊事件
+        private void searchScoreButton_Click(object sender, EventArgs e)
+        {
+            // 清空之前的搜尋結果
+            searchResultLabel.Text = "";
+
+            // 檢查輸入框是否為空
+            if (string.IsNullOrWhiteSpace(searchScoreTextBox.Text))
+            {
+                searchResultLabel.Text = "請輸入要搜尋的成績";
+                return;
+            }
+
+            // 嘗試轉換輸入值為整數
+            if (!int.TryParse(searchScoreTextBox.Text, out int targetScore))
+            {
+                searchResultLabel.Text = "請輸入有效的數字";
+                return;
+            }
+
+            // 在 List 中搜尋目標成績
+            int position = scoresList.IndexOf(targetScore);
+
+            if (position != -1)
+            {
+                // 搜尋成功，顯示所在位置（位置從 1 開始計數）
+                searchResultLabel.Text = $"分數{targetScore}位於第 {position + 1} 筆";
+            }
+            else
+            {
+                // 搜尋失敗
+                searchResultLabel.Text = "分數不存在";
+            }
+        }
+    }
+}
