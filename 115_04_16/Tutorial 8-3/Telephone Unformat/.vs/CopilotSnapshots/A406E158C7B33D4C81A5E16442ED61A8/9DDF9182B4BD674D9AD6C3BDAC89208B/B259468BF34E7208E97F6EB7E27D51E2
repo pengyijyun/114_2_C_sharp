@@ -1,0 +1,127 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Telephone_Unformat
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        /// <summary>
+        /// IsValidFormat 方法用於驗證輸入的電話號碼格式。
+        /// 
+        /// 此方法接受一個字串參數，並判斷該字串是否為
+        /// 台灣電話號碼的正確格式，格式應為：(XXX)XXX-XXXX
+        /// 
+        /// 參數：
+        ///   str - 待檢驗的電話號碼字串
+        /// 
+        /// 返回值：
+        ///   若字串格式正確，返回 true；否則返回 false
+        /// </summary>
+        private bool IsValidFormat(string str)
+        {
+            // 檢查字串長度是否為 14：(XXX)XXX-XXXX
+            if (str.Length != 14)
+            {
+                return false;
+            }
+            // 檢查括號和連字號的位置
+            if (str[0] != '(' || str[4] != ')' || str[8] != '-')
+            {
+                return false;
+            }
+            // 檢查第一組3位數字 (位置 1-3)
+            for (int i = 1; i <= 3; i++)
+            {
+                if (!char.IsDigit(str[i]))
+                {
+                    return false;
+                }
+            }
+            // 檢查第二組3位數字 (位置 5-7)
+            for (int i = 5; i <= 7; i++)
+            {
+                if (!char.IsDigit(str[i]))
+                {
+                    return false;
+                }
+            }
+            // 檢查第三組4位數字 (位置 9-12)
+            for (int i = 9; i <= 12; i++)
+            {
+                if (!char.IsDigit(str[i]))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Unformat 方法用於移除電話號碼的格式符號。
+        /// 
+        /// 此方法接受一個字串引用參數，該參數應包含格式為
+        /// (XX) XXXX-XXXX 的電話號碼。
+        /// 方法將移除括號和連字號，使電話號碼成為純數字形式。
+        /// 
+        /// 參數：
+        ///   str - 待格式化的電話號碼字串（以參考方式傳遞，方法會直接修改原字串）
+        /// </summary>
+        private void Unformat(ref string str)
+        {
+            // 使用 Substring 方法提取所有數字部分並重新組合
+            // 原格式：(XXX)XXX-XXXX
+            // 結果：XXXXXXXXX (10位數字)
+            str = str.Substring(1, 3) + str.Substring(5, 3) + str.Substring(9, 4);
+        }
+
+        /// <summary>
+        /// unformatButton_Click 事件處理方法
+        /// 
+        /// 當用戶點擊「移除格式」按鈕時觸發此事件。
+        /// 方法將驗證輸入的電話號碼格式，若格式正確則移除格式符號並顯示結果；
+        /// 若格式不正確則提示用戶。
+        /// </summary>
+        private void unformatButton_Click(object sender, EventArgs e)
+        {
+            string input = numberTextBox.Text;
+            if (IsValidFormat(input))
+            {
+                Unformat(ref input);
+                numberTextBox.Text = input;
+            }
+            else
+            {
+                MessageBox.Show("電話號碼格式不正確，請輸入符合格式 (XXX)XXX-XXXX 的電話號碼。");
+            }
+        }
+
+        /// <summary>
+        /// exitButton_Click 事件處理方法
+        /// 
+        /// 當用戶點擊「結束」按鈕時觸發此事件。
+        /// 方法將關閉該表單窗口。
+        /// </summary>
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            // 關閉表單。
+            this.Close();
+        }
+
+        private void instructionLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}

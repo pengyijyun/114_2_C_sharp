@@ -83,11 +83,11 @@ namespace Test_Score_List
         // 計算高於平均分數的數量
         private int AboveAverage(List<StudentScore> scoresList, double averageScore)
         {
-            var query = from student in scoresList
+            var aboveAVGquery = from student in scoresList
                         where student.Score > averageScore
                         select student;
             
-            return query.Count();
+            return aboveAVGquery.Count();
         }
 
         // 計算低於平均分數的數量
