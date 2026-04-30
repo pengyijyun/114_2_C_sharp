@@ -1,0 +1,77 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.IO;
+
+namespace Phonebook
+{
+    /// <summary>
+    /// 電話簿項目結構，用於存儲單一聯絡人的姓名和電話號碼
+    /// </summary>
+    struct PhoneBookEntry
+    {
+        public string name;      // 聯絡人的姓名
+        public string phone;     // 聯絡人的電話號碼
+    }
+
+    public partial class Form1 : Form
+    {
+        // 用於儲存電話簿項目列表的欄位
+        private List<PhoneBookEntry> phoneList = 
+            new List<PhoneBookEntry>();
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        /// <summary>
+        /// ReadFile 方法從 PhoneList.txt 檔案讀取內容，
+        /// 並將其作為 PhoneBookEntry 物件儲存在 phoneList 中。
+        /// </summary>
+        private void ReadFile()
+        {
+            
+        }
+
+        /// <summary>
+        /// DisplayNames 方法在 namesListBox 控制項中顯示姓名列表。
+        /// </summary>
+        private void DisplayNames()
+        {
+            
+        }
+
+        /// <summary>
+        /// 窗體載入事件處理程序。
+        /// </summary>
+        private void Form1_Load(object sender, EventArgs e)
+        {
+           
+        }
+
+        /// <summary>
+        /// 姓名清單方塊選項變更事件處理程序。
+        /// </summary>
+        private void nameListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        /// <summary>
+        /// 結束按鈕點擊事件處理程序，用於關閉窗體。
+        /// </summary>
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            // 關閉窗體
+            this.Close();
+        }
+    }
+}
+
