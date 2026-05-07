@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36915.13 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "吃角子老虎機", "吃角子老虎機\吃角子老虎機.csproj", "{AEFE9D6B-6D33-4449-BED3-406D27823FBE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AEFE9D6B-6D33-4449-BED3-406D27823FBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEFE9D6B-6D33-4449-BED3-406D27823FBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEFE9D6B-6D33-4449-BED3-406D27823FBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEFE9D6B-6D33-4449-BED3-406D27823FBE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {70714D52-914F-46DF-81D0-CFBD2D86CD39}
+	EndGlobalSection
+EndGlobal
