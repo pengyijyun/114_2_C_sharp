@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Cell_Phone_Test
+{
+    // CellPhone 類別 - 代表一個手機物件
+    class CellPhone
+    {
+        // 用於存放手機品牌的私有欄位
+        // 用於存放手機型號的私有欄位
+        // 用於存放手機價格的私有欄位
+    }
+}
