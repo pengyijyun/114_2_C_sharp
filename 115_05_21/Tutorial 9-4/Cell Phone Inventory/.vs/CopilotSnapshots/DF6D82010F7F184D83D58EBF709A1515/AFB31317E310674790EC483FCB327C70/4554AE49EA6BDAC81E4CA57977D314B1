@@ -1,0 +1,63 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Cell_Phone_Inventory
+{
+    /// <summary>
+    /// CellPhone 類別
+    /// 用於表示一支手機的資訊，包括品牌、型號和零售價格
+    /// </summary>
+    class CellPhone
+    {
+        // 手機品牌欄位
+        private string _brand;
+        // 手機型號欄位
+        private string _model;
+        // 手機零售價格欄位
+        private decimal _price;
+
+        /// <summary>
+        /// CellPhone 類別的建構子
+        /// 初始化所有欄位為預設值
+        /// </summary>
+        public CellPhone()
+        {
+            _brand = "";
+            _model = "";
+            _price = 0m;
+        }
+
+        /// <summary>
+        /// Brand 屬性
+        /// 取得或設定手機的品牌
+        /// </summary>
+        public string Brand
+        {
+            get { return _brand; }
+            set { _brand = value; }
+        }
+
+        /// <summary>
+        /// Model 屬性
+        /// 取得或設定手機的型號
+        /// </summary>
+        public string Model
+        {
+            get { return _model; }
+            set { _model = value; }
+        }
+
+        /// <summary>
+        /// Price 屬性
+        /// 取得或設定手機的零售價格
+        /// </summary>
+        public decimal Price
+        {
+            get { return _price; }
+            set { _price = value; }
+        }
+    }
+}
