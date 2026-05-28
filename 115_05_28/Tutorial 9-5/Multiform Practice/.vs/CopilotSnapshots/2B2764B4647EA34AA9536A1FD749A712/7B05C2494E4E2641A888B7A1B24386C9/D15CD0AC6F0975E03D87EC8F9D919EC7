@@ -1,0 +1,88 @@
+﻿namespace Multiform_Practice
+{
+    partial class MainForm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            // 初始化「顯示表單」按鈕控件
+            this.displayFormButton = new System.Windows.Forms.Button();
+            // 初始化「結束」按鈕控件
+            this.exitButton = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // displayFormButton
+            // 
+            // 設定「顯示表單」按鈕的位置為 X=30, Y=20
+            this.displayFormButton.Location = new System.Drawing.Point(30, 20);
+            this.displayFormButton.Name = "displayFormButton";
+            // 設定「顯示表單」按鈕的大小為寬度 120, 高度 50
+            this.displayFormButton.Size = new System.Drawing.Size(120, 50);
+            this.displayFormButton.TabIndex = 0;
+            // 將「顯示表單」按鈕的文字設為繁體中文
+            this.displayFormButton.Text = "顯示表單";
+            // 設定「顯示表單」按鈕的字型為 Microsoft Sans Serif, 18pt
+            this.displayFormButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.displayFormButton.UseVisualStyleBackColor = true;
+            this.displayFormButton.Click += new System.EventHandler(this.displayFormButton_Click);
+            // 
+            // exitButton
+            // 
+            // 設定「結束」按鈕的位置為 X=180, Y=20
+            this.exitButton.Location = new System.Drawing.Point(180, 20);
+            this.exitButton.Name = "exitButton";
+            // 設定「結束」按鈕的大小為寬度 100, 高度 50
+            this.exitButton.Size = new System.Drawing.Size(100, 50);
+            this.exitButton.TabIndex = 1;
+            // 將「結束」按鈕的文字設為繁體中文
+            this.exitButton.Text = "結束";
+            // 設定「結束」按鈕的字型為 Microsoft Sans Serif, 18pt
+            this.exitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
+            // MainForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            // 調整主表單的大小為寬度 330, 高度 120，以容納調整後的控件
+            this.ClientSize = new System.Drawing.Size(330, 120);
+            this.Controls.Add(this.exitButton);
+            this.Controls.Add(this.displayFormButton);
+            this.Name = "MainForm";
+            // 將主表單的標題設為繁體中文
+            this.Text = "多表單練習";
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Button displayFormButton;
+        private System.Windows.Forms.Button exitButton;
+    }
+}
+

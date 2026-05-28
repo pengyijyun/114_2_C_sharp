@@ -1,0 +1,47 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Multiform_Practice
+{
+    /// <summary>
+    /// 主表單類別，用於顯示多表單練習應用程式的主要使用者介面
+    /// </summary>
+    public partial class MainForm : Form
+    {
+        /// <summary>
+        /// 初始化主表單
+        /// </summary>
+        public MainForm()
+        {
+            InitializeComponent();
+        }
+
+        /// <summary>
+        /// 「顯示表單」按鈕的點擊事件處理器
+        /// </summary>
+        private void displayFormButton_Click(object sender, EventArgs e)
+        {
+            // 建立 MessageForm 類別的實例
+          
+
+            // 顯示該表單
+            
+        }
+
+        /// <summary>
+        /// 「結束」按鈕的點擊事件處理器
+        /// </summary>
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            // 關閉主表單
+            this.Close();
+        }
+    }
+}
