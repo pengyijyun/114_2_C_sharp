@@ -1,0 +1,24 @@
+﻿namespace MutiForm
+{
+    
+    public partial class MainForm : Form
+    {
+        private string username = "william";
+
+        public string Username
+        {
+            get { return username; }
+        }
+
+        public MainForm()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SecondForm secondForm = new SecondForm(ref username);
+            secondForm.ShowDialog();
+        }
+    }
+}

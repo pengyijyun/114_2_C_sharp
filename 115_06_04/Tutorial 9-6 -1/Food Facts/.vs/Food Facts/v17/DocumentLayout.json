@@ -1,0 +1,121 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\m303\\Desktop\\114_2_C_sharp\\115_06_04\\Tutorial 9-6 -1\\Food Facts\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9EC7B563-9F13-472D-A3FF-00E42F3F8193}|Food Facts\\Food Facts.csproj|c:\\users\\m303\\desktop\\114_2_c_sharp\\115_06_04\\tutorial 9-6 -1\\food facts\\food facts\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9EC7B563-9F13-472D-A3FF-00E42F3F8193}|Food Facts\\Food Facts.csproj|solutionrelative:food facts\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9EC7B563-9F13-472D-A3FF-00E42F3F8193}|Food Facts\\Food Facts.csproj|C:\\Users\\m303\\Desktop\\114_2_C_sharp\\115_06_04\\Tutorial 9-6 -1\\Food Facts\\food facts\\nutritionform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9EC7B563-9F13-472D-A3FF-00E42F3F8193}|Food Facts\\Food Facts.csproj|solutionrelative:food facts\\nutritionform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9EC7B563-9F13-472D-A3FF-00E42F3F8193}|Food Facts\\Food Facts.csproj|c:\\users\\m303\\desktop\\114_2_c_sharp\\115_06_04\\tutorial 9-6 -1\\food facts\\food facts\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9EC7B563-9F13-472D-A3FF-00E42F3F8193}|Food Facts\\Food Facts.csproj|solutionrelative:food facts\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9EC7B563-9F13-472D-A3FF-00E42F3F8193}|Food Facts\\Food Facts.csproj|c:\\users\\m303\\desktop\\114_2_c_sharp\\115_06_04\\tutorial 9-6 -1\\food facts\\food facts\\fooditem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9EC7B563-9F13-472D-A3FF-00E42F3F8193}|Food Facts\\Food Facts.csproj|solutionrelative:food facts\\fooditem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9EC7B563-9F13-472D-A3FF-00E42F3F8193}|Food Facts\\Food Facts.csproj|C:\\Users\\m303\\Desktop\\114_2_C_sharp\\115_06_04\\Tutorial 9-6 -1\\Food Facts\\food facts\\nutritionfact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9EC7B563-9F13-472D-A3FF-00E42F3F8193}|Food Facts\\Food Facts.csproj|solutionrelative:food facts\\nutritionfact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9EC7B563-9F13-472D-A3FF-00E42F3F8193}|Food Facts\\Food Facts.csproj|c:\\users\\m303\\desktop\\114_2_c_sharp\\115_06_04\\tutorial 9-6 -1\\food facts\\food facts\\mainform.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{9EC7B563-9F13-472D-A3FF-00E42F3F8193}|Food Facts\\Food Facts.csproj|solutionrelative:food facts\\mainform.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MainForm.resx",
+              "DocumentMoniker": "C:\\Users\\m303\\Desktop\\114_2_C_sharp\\115_06_04\\Tutorial 9-6 -1\\Food Facts\\Food Facts\\MainForm.resx",
+              "RelativeDocumentMoniker": "Food Facts\\MainForm.resx",
+              "ToolTip": "C:\\Users\\m303\\Desktop\\114_2_C_sharp\\115_06_04\\Tutorial 9-6 -1\\Food Facts\\Food Facts\\MainForm.resx",
+              "RelativeToolTip": "Food Facts\\MainForm.resx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2026-06-04T06:25:30.655Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "C:\\Users\\m303\\Desktop\\114_2_C_sharp\\115_06_04\\Tutorial 9-6 -1\\Food Facts\\Food Facts\\MainForm.cs",
+              "RelativeDocumentMoniker": "Food Facts\\MainForm.cs",
+              "ToolTip": "C:\\Users\\m303\\Desktop\\114_2_C_sharp\\115_06_04\\Tutorial 9-6 -1\\Food Facts\\Food Facts\\MainForm.cs",
+              "RelativeToolTip": "Food Facts\\MainForm.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAAwCgAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T06:17:32.843Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "NutritionForm.cs",
+              "DocumentMoniker": "C:\\Users\\m303\\Desktop\\114_2_C_sharp\\115_06_04\\Tutorial 9-6 -1\\Food Facts\\Food Facts\\NutritionForm.cs",
+              "RelativeDocumentMoniker": "Food Facts\\NutritionForm.cs",
+              "ToolTip": "C:\\Users\\m303\\Desktop\\114_2_C_sharp\\115_06_04\\Tutorial 9-6 -1\\Food Facts\\Food Facts\\NutritionForm.cs",
+              "RelativeToolTip": "Food Facts\\NutritionForm.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAswC8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-28T06:59:06.352Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\m303\\Desktop\\114_2_C_sharp\\115_06_04\\Tutorial 9-6 -1\\Food Facts\\Food Facts\\MainForm.Designer.cs",
+              "RelativeDocumentMoniker": "Food Facts\\MainForm.Designer.cs",
+              "ToolTip": "C:\\Users\\m303\\Desktop\\114_2_C_sharp\\115_06_04\\Tutorial 9-6 -1\\Food Facts\\Food Facts\\MainForm.Designer.cs",
+              "RelativeToolTip": "Food Facts\\MainForm.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAI8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T06:21:55.564Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Fooditem.cs",
+              "DocumentMoniker": "C:\\Users\\m303\\Desktop\\114_2_C_sharp\\115_06_04\\Tutorial 9-6 -1\\Food Facts\\Food Facts\\Fooditem.cs",
+              "RelativeDocumentMoniker": "Food Facts\\Fooditem.cs",
+              "ToolTip": "C:\\Users\\m303\\Desktop\\114_2_C_sharp\\115_06_04\\Tutorial 9-6 -1\\Food Facts\\Food Facts\\Fooditem.cs",
+              "RelativeToolTip": "Food Facts\\Fooditem.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACcAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T06:03:53.737Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "NutritionFact.cs",
+              "DocumentMoniker": "C:\\Users\\m303\\Desktop\\114_2_C_sharp\\115_06_04\\Tutorial 9-6 -1\\Food Facts\\Food Facts\\NutritionFact.cs",
+              "RelativeDocumentMoniker": "Food Facts\\NutritionFact.cs",
+              "ToolTip": "C:\\Users\\m303\\Desktop\\114_2_C_sharp\\115_06_04\\Tutorial 9-6 -1\\Food Facts\\Food Facts\\NutritionFact.cs",
+              "RelativeToolTip": "Food Facts\\NutritionFact.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAowC0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-28T07:51:05.82Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

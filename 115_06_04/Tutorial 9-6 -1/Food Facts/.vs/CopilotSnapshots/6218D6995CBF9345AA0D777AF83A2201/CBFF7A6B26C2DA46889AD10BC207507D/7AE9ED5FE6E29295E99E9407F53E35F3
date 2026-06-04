@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- Microsoft ResX .NET Framework Version=4.0 -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata" type="xsd:string" minOccurs="0" />
+          <xsd:element name="assembly" type="xsd:string" minOccurs="0" />
+          <xsd:element name="data" name="Data" type="xsd:string" minOccurs="0" msdata:Occurrence="repeating" />
+          <xsd:element name="resheader" name="ResHeader" type="xsd:string" minOccurs="0" msdata:Occurrence="repeating">
+            <xsd:attribute name="name" type="xsd:string" use="required" />
+            <xsd:attribute name="type" type="xsd:string" use="required" />
+            <xsd:attribute name="mimetype" type="xsd:string" use="required" />
+            <xsd:attribute name="value" type="xsd:string" use="required" />
+          </xsd:element>
+        </xsd:choice>
+        <xsd:attribute name="name" type="xsd:string" use="required" />
+        <xsd:attribute name="type" type="xsd:string" use="required" />
+        <xsd:attribute name="mimetype" type="xsd:string" use="required" />
+        <xsd:attribute name="version" type="xsd:string" use="required" />
+        <xsd:attribute name="reader" type="xsd:string" use="required" />
+        <xsd:attribute name="writer" type="xsd:string" use="required" />
+        <xsd:attribute name="culture" type="xsd:string" use="required" />
+      </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="resheader" type="xsd:string">
+      <xsd:attribute name="name" type="xsd:string" use="required" />
+      <xsd:attribute name="type" type="xsd:string" use="required" />
+      <xsd:attribute name="mimetype" type="xsd:string" use="required" />
+      <xsd:attribute name="value" type="xsd:string" use="required" />
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.TrayHeight" type="System.Resources.ResXString, System.Windows.Forms">
+    <value>80</value>
+  </data>
+</root>

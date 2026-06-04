@@ -1,0 +1,52 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Food_Facts
+{
+    public partial class MainForm : Form
+    {
+        public MainForm()
+        {
+            InitializeComponent();
+        }
+
+        private void displayButton_Click(object sender, EventArgs e)
+        {
+            FoodItem selectedFood = null;
+            // Create an instance of the NutritionForm class.
+            // NutritionForm nutriForm = new NutritionForm();
+
+            // 尋找選定的單選按鈕
+            if (bananaRadioButton.Checked)
+            {
+                selectedFood = new FoodItem("1根香蕉", 100, 0.4, 27);
+            }
+            else if (popcornRadioButton.Checked)
+            {
+                selectedFood = new FoodItem("1杯空氣爆米花", 31, 0.4, 6);
+            }
+            else if (muffinRadioButton.Checked)
+            {
+                selectedFood = new FoodItem("1個大藍莓馬芬", 385, 9, 67);
+            }
+            }
+            }
+
+            // Display the NutritionForm.
+            nutriForm.ShowDialog();
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            // Close the form.
+            this.Close();
+        }
+    }
+}

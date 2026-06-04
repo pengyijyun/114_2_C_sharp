@@ -1,0 +1,112 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Account_Simulator
+{
+    public partial class Form1 : Form
+    {
+        private BankAccount account;
+
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {            
+            // 初始化帳戶，暫時設為 null，需透過建立帳戶功能來初始化
+            account = null;
+            depositGroupBox.Visible = false;
+            withdrawGroupBox.Visible = false;
+        }
+
+        private void depositButton_Click(object sender, EventArgs e)
+        {
+            decimal amount;
+            if (decimal.TryParse(depositTextBox.Text, out amount))
+            {
+                account.Deposit(amount);
+                balanceLabel.Text = account.AccountNumber + "\n"
+                    + account.Name + "\n"
+                    + account.Balance.ToString("C");
+                depositTextBox.Clear();
+            }
+            else
+            {
+                MessageBox.Show("請輸入有效的存款金額。", "輸入錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void withdrawButton_Click(object sender, EventArgs e)
+        {           
+           decimal amount;
+            if (decimal.TryParse(withdrawTextBox.Text, out amount))
+            {
+                account.Withdraw(amount);
+                balanceLabel.Text = account.AccountNumber + "\n"
+                    + account.Name + "\n"
+                    + account.Balance.ToString("C");
+                withdrawTextBox.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("請輸入有效的存款金額。", "輸入錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        
+
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            
+            this.Close();
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void depositGroupBox_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            if (decimal.TryParse(balanceTextBox.Text, out decimal amount))
+                {
+                string accountNumber = accountNumberTextBox.Text;
+                string name = nameTextBox.Text;
+                account = new BankAccount(accountNumber, name, amount);
+                balanceLabel.Text = accountNumber + "\n"
+                    + name + "\n" 
+                    + account.Balance.ToString("C");
+
+                accountNumberTextBox.Clear();
+                nameTextBox.Clear();
+                balanceTextBox.Clear();
+                depositGroupBox.Visible = true;
+                withdrawGroupBox.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("請輸入有效的初始餘額。", "輸入錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+        }
+
+        private void balanceTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
+}

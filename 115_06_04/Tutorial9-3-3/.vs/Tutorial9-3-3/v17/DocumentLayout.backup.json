@@ -1,0 +1,36 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\m303\\Desktop\\114_2_C_sharp\\115_06_04\\Tutorial9-3-3\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4A7FCF51-67EA-46BD-B1E6-72D64391C761}|Tutorial9-3-3\\Tutorial9-3-3.csproj|c:\\users\\m303\\desktop\\114_2_c_sharp\\115_06_04\\tutorial9-3-3\\tutorial9-3-3\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{4A7FCF51-67EA-46BD-B1E6-72D64391C761}|Tutorial9-3-3\\Tutorial9-3-3.csproj|solutionrelative:tutorial9-3-3\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\m303\\Desktop\\114_2_C_sharp\\115_06_04\\Tutorial9-3-3\\Tutorial9-3-3\\Form1.cs",
+              "RelativeDocumentMoniker": "Tutorial9-3-3\\Form1.cs",
+              "ToolTip": "C:\\Users\\m303\\Desktop\\114_2_C_sharp\\115_06_04\\Tutorial9-3-3\\Tutorial9-3-3\\Form1.cs [Design]",
+              "RelativeToolTip": "Tutorial9-3-3\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T06:40:47.242Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
