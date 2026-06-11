@@ -1,0 +1,158 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Windows.Forms;
+
+namespace 摩斯密碼轉換器
+{
+    /// <summary>
+    /// 記錄單一字元與其對應摩斯密碼的資料結構
+    /// </summary>
+    public struct MorseEntry
+    {
+        public char Character;   // 字元（英文大寫、數字或符號）
+        public string MorseCode; // 對應的摩斯密碼（由 '.' 和 '-' 組成）
+    }
+
+    public partial class Form1 : Form
+    {
+        // 使用 List<MorseEntry> 儲存完整摩斯密碼表
+        private List<MorseEntry> morseTable = new List<MorseEntry>();
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        /// <summary>
+        /// 表單載入事件：讀取摩斯密碼表
+        /// </summary>
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            string filePath = Path.Combine(Application.StartupPath, "morse_code_table.md");
+
+            if (File.Exists(filePath))
+            {
+                LoadMorseTable(filePath);
+            }
+            else
+            {
+                MessageBox.Show(
+                    $"找不到摩斯密碼表檔案：\n{filePath}",
+                    "錯誤",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
+        }
+
+        /// <summary>
+        /// 讀取摩斯密碼表檔案
+        /// </summary>
+        private void LoadMorseTable(string filePath)
+        {
+            morseTable.Clear();
+
+            // 使用 File.OpenText() 開啟檔案
+            // 使用 StreamReader 讀取
+            using (StreamReader inputFile = File.OpenText(filePath))
+            {
+                // 使用 !inputFile.EndOfStream 判斷是否仍有未讀資料
+                while (!inputFile.EndOfStream)
+                {
+                    string line = inputFile.ReadLine();
+
+                    // 忽略空白行與註解行
+                    if (string.IsNullOrWhiteSpace(line) || line.TrimStart().StartsWith("#"))
+                        continue;
+
+                    // 解析每一行，建立 MorseEntry 並加入 List
+                    // 特殊處理空白字符：允許第一個字符是空白
+                    if (line.Length >= 2)
+                    {
+                        char character = line[0];
+                        string morseCode = line.Substring(1).Trim();
+                        
+                        if (!string.IsNullOrEmpty(morseCode))
+                        {
+                            MorseEntry entry = new MorseEntry
+                            {
+                                Character = character,
+                                MorseCode = morseCode
+                            };
+                            morseTable.Add(entry);
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// 在 morseTable 中依字元查找對應的摩斯密碼
+        /// 若找不到則回傳 null
+        /// </summary>
+        private string FindMorseCode(char c)
+        {
+            // 對於空白字符，直接查找；對於其他字符，轉為大寫
+            char searchChar = (c == ' ') ? ' ' : char.ToUpper(c);
+            
+            foreach (MorseEntry entry in morseTable)
+            {
+                if (entry.Character == searchChar)
+                    return entry.MorseCode;
+            }
+            return null; // 未定義的字元回傳 null（將被忽略）
+        }
+
+        /// <summary>
+        /// 轉換按鈕點擊事件
+        /// </summary>
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string input = textBox1.Text;
+
+            // 清空前次結果
+            textBox2.Clear();
+            listBox1.Items.Clear();
+
+            if (string.IsNullOrEmpty(input))
+            {
+                MessageBox.Show("請輸入要轉換的文字。", "提示",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            List<string> morseTokens = new List<string>(); // 收集每個字元的摩斯密碼
+
+            foreach (char c in input)
+            {
+                string morse = FindMorseCode(c);
+
+                if (morse != null)
+                {
+                    // 有對應摩斯密碼：加入結果
+                    morseTokens.Add(morse);
+
+                    // 逐字對照：格式為「字元 → 摩斯密碼」
+                    // 對於空白字符，顯示為"空白"
+                    string displayChar = (c == ' ') ? "空白" : char.ToUpper(c).ToString();
+                    listBox1.Items.Add($"{displayChar} → {morse}");
+                }
+                // 未定義字元：直接忽略（不加入任何輸出）
+            }
+
+            // 完整摩斯密碼以空白分隔各字元的密碼
+            textBox2.Text = string.Join(" ", morseTokens);
+        }
+
+        /// <summary>
+        /// 清除按鈕點擊事件
+        /// </summary>
+        private void button2_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+            textBox2.Clear();
+            listBox1.Items.Clear();
+        }
+    }
+}

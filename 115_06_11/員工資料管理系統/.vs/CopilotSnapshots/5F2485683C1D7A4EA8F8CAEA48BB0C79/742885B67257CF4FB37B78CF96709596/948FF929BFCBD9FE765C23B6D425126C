@@ -1,0 +1,46 @@
+﻿namespace 員工資料管理系統
+{
+    public partial class EditForm : Form
+    {
+        private Employee targetEmployee;
+
+        public EditForm(Employee emp)
+        {
+            InitializeComponent();
+            targetEmployee = emp;
+        }
+
+        private void EditForm_Load(object sender, EventArgs e)
+        {
+            // 將現有資料填入欄位
+            txtName.Text = targetEmployee.Name;
+            lblIdNumber.Text = targetEmployee.IdNumber.ToString();
+            txtDepartment.Text = targetEmployee.Department;
+            txtPosition.Text = targetEmployee.Position;
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtName.Text))
+            {
+                MessageBox.Show("姓名不可空白。", "輸入錯誤",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 直接修改原始物件屬性
+            targetEmployee.Name = txtName.Text.Trim();
+            targetEmployee.Department = txtDepartment.Text.Trim();
+            targetEmployee.Position = txtPosition.Text.Trim();
+
+            MessageBox.Show("員工資料已更新。", "修改成功",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
+}

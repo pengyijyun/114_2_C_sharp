@@ -1,0 +1,156 @@
+﻿namespace 員工資料管理系統
+{
+    public partial class Form1 : Form
+    {
+        private List<Employee> employeeList = new List<Employee>();
+        private const string EMPLOYEE_FILE = "employees.txt";
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            LoadEmployeesFromFile();
+            RefreshListBox();
+        }
+
+        private void LoadEmployeesFromFile()
+        {
+            employeeList.Clear();
+
+            if (!File.Exists(EMPLOYEE_FILE))
+            {
+                return;
+            }
+
+            try
+            {
+                using (StreamReader reader = new StreamReader(EMPLOYEE_FILE))
+                {
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        if (string.IsNullOrWhiteSpace(line))
+                            continue;
+
+                        string[] parts = line.Split('|');
+                        if (parts.Length == 4)
+                        {
+                            if (int.TryParse(parts[0], out int idNumber))
+                            {
+                                Employee emp = new Employee(
+                                    parts[1],
+                                    idNumber,
+                                    parts[2],
+                                    parts[3]
+                                );
+                                employeeList.Add(emp);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"讀取員工檔案失敗：{ex.Message}", "錯誤",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void SaveEmployeesToFile()
+        {
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(EMPLOYEE_FILE))
+                {
+                    foreach (Employee emp in employeeList)
+                    {
+                        writer.WriteLine($"{emp.IdNumber}|{emp.Name}|{emp.Department}|{emp.Position}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"保存員工檔案失敗：{ex.Message}", "錯誤",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void RefreshListBox()
+        {
+            employeeListBox.Items.Clear();
+            foreach (Employee emp in employeeList)
+            {
+                employeeListBox.Items.Add($"{emp.IdNumber}\t{emp.Name}");
+            }
+            SaveEmployeesToFile();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            AddForm addForm = new AddForm(employeeList);
+            addForm.ShowDialog();
+            RefreshListBox();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (employeeListBox.SelectedIndex == -1)
+            {
+                MessageBox.Show("請先選取要刪除的員工。", "提示",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            Employee selected = employeeList[employeeListBox.SelectedIndex];
+
+            DialogResult result = MessageBox.Show(
+                $"確定要刪除員工「{selected.Name}」（編號：{selected.IdNumber}）嗎？",
+                "確認刪除",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (result == DialogResult.Yes)
+            {
+                employeeList.RemoveAt(employeeListBox.SelectedIndex);
+                RefreshListBox();
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (employeeListBox.SelectedIndex == -1)
+            {
+                MessageBox.Show("請先選取要修改的員工。", "提示",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int selectedIndex = employeeListBox.SelectedIndex;
+            EditForm editForm = new EditForm(employeeList[selectedIndex]);
+            editForm.ShowDialog();
+            RefreshListBox();
+        }
+
+        private void btnQuery_Click(object sender, EventArgs e)
+        {
+            QueryForm queryForm = new QueryForm(employeeList);
+            queryForm.ShowDialog();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            SaveEmployeesToFile();
+            Application.Exit();
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            SaveEmployeesToFile();
+            base.OnFormClosing(e);
+        }
+    }
+}

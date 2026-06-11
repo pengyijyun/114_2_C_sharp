@@ -1,0 +1,61 @@
+﻿namespace 員工資料管理系統
+{
+    public partial class AddForm : Form
+    {
+        private List<Employee> employeeList;
+
+        public AddForm(List<Employee> list)
+        {
+            InitializeComponent();
+            employeeList = list;
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            // 驗證姓名不可空白
+            if (string.IsNullOrWhiteSpace(txtName.Text))
+            {
+                MessageBox.Show("姓名不可空白。", "輸入錯誤",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 驗證員工編號為正整數
+            if (!int.TryParse(txtIdNumber.Text, out int idNumber) || idNumber <= 0)
+            {
+                MessageBox.Show("員工編號必須為正整數。", "輸入錯誤",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 驗證員工編號不重複
+            foreach (Employee emp in employeeList)
+            {
+                if (emp.IdNumber == idNumber)
+                {
+                    MessageBox.Show($"員工編號 {idNumber} 已存在，請使用其他編號。", "輸入錯誤",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+
+            // 使用四參數建構子建立新員工
+            Employee newEmp = new Employee(
+                txtName.Text.Trim(),
+                idNumber,
+                txtDepartment.Text.Trim(),
+                txtPosition.Text.Trim()
+            );
+
+            employeeList.Add(newEmp);
+            MessageBox.Show($"已成功新增員工「{newEmp.Name}」。", "新增成功",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
+}

@@ -1,0 +1,87 @@
+﻿namespace 員工資料管理系統
+{
+    public partial class AddForm : Form
+    {
+        // 用來存放主表單傳入的員工清單參考
+        private List<Employee> employeeList;
+
+        // 建構子：接收主表單的員工清單
+        public AddForm(List<Employee> list)
+        {
+            InitializeComponent();
+            employeeList = list;
+            
+            // 為所有文字輸入框添加事件，以便即時更新顯示區域
+            txtIdNumber.TextChanged += (s, e) => UpdateDisplayBox();
+            txtName.TextChanged += (s, e) => UpdateDisplayBox();
+            txtDepartment.TextChanged += (s, e) => UpdateDisplayBox();
+            txtPosition.TextChanged += (s, e) => UpdateDisplayBox();
+        }
+
+        // 更新下方顯示區域，實時顯示使用者輸入的員工資料
+        private void UpdateDisplayBox()
+        {
+            displayBox.Text = 
+                $"員工編號：{txtIdNumber.Text}\n" +
+                $"姓　　名：{txtName.Text}\n" +
+                $"部　　門：{txtDepartment.Text}\n" +
+                $"職　　位：{txtPosition.Text}";
+        }
+
+        // 確認新增按鈕的點擊事件
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            // 驗證姓名不可空白
+            if (string.IsNullOrWhiteSpace(txtName.Text))
+            {
+                MessageBox.Show("姓名不可空白。", "輸入錯誤",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 驗證員工編號必須為正整數
+            if (!int.TryParse(txtIdNumber.Text, out int idNumber) || idNumber <= 0)
+            {
+                MessageBox.Show("員工編號必須為正整數。", "輸入錯誤",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 驗證員工編號不可重複
+            foreach (Employee emp in employeeList)
+            {
+                if (emp.IdNumber == idNumber)
+                {
+                    MessageBox.Show($"員工編號 {idNumber} 已存在，請使用其他編號。", "輸入錯誤",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+
+            // 使用四參數建構子建立新的員工物件
+            Employee newEmp = new Employee(
+                txtName.Text.Trim(),
+                idNumber,
+                txtDepartment.Text.Trim(),
+                txtPosition.Text.Trim()
+            );
+
+            // 將新員工新增到清單中
+            employeeList.Add(newEmp);
+            
+            // 顯示成功訊息
+            MessageBox.Show($"已成功新增員工「{newEmp.Name}」。", "新增成功",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
+            // 關閉此表單
+            this.Close();
+        }
+
+        // 取消按鈕的點擊事件
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            // 直接關閉視窗，不儲存任何資料
+            this.Close();
+        }
+    }
+}

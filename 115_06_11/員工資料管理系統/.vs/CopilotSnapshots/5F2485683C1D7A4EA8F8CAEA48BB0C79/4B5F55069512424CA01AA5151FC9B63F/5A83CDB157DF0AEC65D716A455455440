@@ -1,0 +1,145 @@
+﻿namespace 員工資料管理系統
+{
+    partial class Form1
+    {
+        /// <summary>
+        ///  Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        ///  Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            label1 = new Label();
+            employeeListBox = new ListBox();
+            btnAdd = new Button();
+            btnDelete = new Button();
+            btnEdit = new Button();
+            btnQuery = new Button();
+            btnExit = new Button();
+            SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("新細明體", 20F, FontStyle.Bold, GraphicsUnit.Point, 136);
+            label1.Location = new Point(13, 22);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(263, 40);
+            label1.TabIndex = 0;
+            label1.Text = "員工資料管理";
+            // 
+            // employeeListBox
+            // 
+            employeeListBox.FormattingEnabled = true;
+            employeeListBox.Location = new Point(160, 87);
+            employeeListBox.Margin = new Padding(4, 3, 4, 3);
+            employeeListBox.Name = "employeeListBox";
+            employeeListBox.Size = new Size(610, 326);
+            employeeListBox.TabIndex = 1;
+            // 
+            // btnAdd
+            // 
+            btnAdd.Location = new Point(13, 87);
+            btnAdd.Margin = new Padding(4, 3, 4, 3);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(139, 51);
+            btnAdd.TabIndex = 2;
+            btnAdd.Text = "新增員工";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
+            // 
+            // btnDelete
+            // 
+            btnDelete.Location = new Point(13, 153);
+            btnDelete.Margin = new Padding(4, 3, 4, 3);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(139, 49);
+            btnDelete.TabIndex = 3;
+            btnDelete.Text = "刪除員工";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
+            // 
+            // btnEdit
+            // 
+            btnEdit.Location = new Point(13, 221);
+            btnEdit.Margin = new Padding(4, 3, 4, 3);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(139, 53);
+            btnEdit.TabIndex = 4;
+            btnEdit.Text = "修改員工";
+            btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Click += btnEdit_Click;
+            // 
+            // btnQuery
+            // 
+            btnQuery.Location = new Point(13, 294);
+            btnQuery.Margin = new Padding(4, 3, 4, 3);
+            btnQuery.Name = "btnQuery";
+            btnQuery.Size = new Size(139, 48);
+            btnQuery.TabIndex = 5;
+            btnQuery.Text = "查詢員工";
+            btnQuery.UseVisualStyleBackColor = true;
+            btnQuery.Click += btnQuery_Click;
+            // 
+            // btnExit
+            // 
+            btnExit.Location = new Point(13, 357);
+            btnExit.Margin = new Padding(4, 3, 4, 3);
+            btnExit.Name = "btnExit";
+            btnExit.Size = new Size(139, 56);
+            btnExit.TabIndex = 6;
+            btnExit.Text = "離開";
+            btnExit.UseVisualStyleBackColor = true;
+            btnExit.Click += btnExit_Click;
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(11F, 23F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(792, 437);
+            Controls.Add(btnExit);
+            Controls.Add(btnQuery);
+            Controls.Add(btnEdit);
+            Controls.Add(btnDelete);
+            Controls.Add(btnAdd);
+            Controls.Add(employeeListBox);
+            Controls.Add(label1);
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "Form1";
+            Text = "員工資料管理系統";
+            Load += Form1_Load;
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListBox employeeListBox;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnQuery;
+        private System.Windows.Forms.Button btnExit;
+    }
+}

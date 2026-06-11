@@ -1,0 +1,17 @@
+C:\Users\m303\Desktop\115_06_11\摩斯密碼轉換器\摩斯密碼轉換器\bin\Debug\net8.0-windows\摩斯密碼轉換器.exe
+C:\Users\m303\Desktop\115_06_11\摩斯密碼轉換器\摩斯密碼轉換器\bin\Debug\net8.0-windows\摩斯密碼轉換器.deps.json
+C:\Users\m303\Desktop\115_06_11\摩斯密碼轉換器\摩斯密碼轉換器\bin\Debug\net8.0-windows\摩斯密碼轉換器.runtimeconfig.json
+C:\Users\m303\Desktop\115_06_11\摩斯密碼轉換器\摩斯密碼轉換器\bin\Debug\net8.0-windows\摩斯密碼轉換器.dll
+C:\Users\m303\Desktop\115_06_11\摩斯密碼轉換器\摩斯密碼轉換器\bin\Debug\net8.0-windows\摩斯密碼轉換器.pdb
+C:\Users\m303\Desktop\115_06_11\摩斯密碼轉換器\摩斯密碼轉換器\obj\Debug\net8.0-windows\摩斯密碼轉換器.Form1.resources
+C:\Users\m303\Desktop\115_06_11\摩斯密碼轉換器\摩斯密碼轉換器\obj\Debug\net8.0-windows\摩斯密碼轉換器.csproj.GenerateResource.cache
+C:\Users\m303\Desktop\115_06_11\摩斯密碼轉換器\摩斯密碼轉換器\obj\Debug\net8.0-windows\摩斯密碼轉換器.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\m303\Desktop\115_06_11\摩斯密碼轉換器\摩斯密碼轉換器\obj\Debug\net8.0-windows\摩斯密碼轉換器.AssemblyInfoInputs.cache
+C:\Users\m303\Desktop\115_06_11\摩斯密碼轉換器\摩斯密碼轉換器\obj\Debug\net8.0-windows\摩斯密碼轉換器.AssemblyInfo.cs
+C:\Users\m303\Desktop\115_06_11\摩斯密碼轉換器\摩斯密碼轉換器\obj\Debug\net8.0-windows\摩斯密碼轉換器.csproj.CoreCompileInputs.cache
+C:\Users\m303\Desktop\115_06_11\摩斯密碼轉換器\摩斯密碼轉換器\obj\Debug\net8.0-windows\摩斯密碼轉換器.dll
+C:\Users\m303\Desktop\115_06_11\摩斯密碼轉換器\摩斯密碼轉換器\obj\Debug\net8.0-windows\refint\摩斯密碼轉換器.dll
+C:\Users\m303\Desktop\115_06_11\摩斯密碼轉換器\摩斯密碼轉換器\obj\Debug\net8.0-windows\摩斯密碼轉換器.pdb
+C:\Users\m303\Desktop\115_06_11\摩斯密碼轉換器\摩斯密碼轉換器\obj\Debug\net8.0-windows\摩斯密碼轉換器.genruntimeconfig.cache
+C:\Users\m303\Desktop\115_06_11\摩斯密碼轉換器\摩斯密碼轉換器\obj\Debug\net8.0-windows\ref\摩斯密碼轉換器.dll
+C:\Users\m303\Desktop\115_06_11\摩斯密碼轉換器\摩斯密碼轉換器\bin\Debug\net8.0-windows\morse_code_table.md
